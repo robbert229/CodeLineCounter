@@ -1,0 +1,55 @@
+package co.johnrowley.codecounter;
+
+import java.io.*;
+
+class CodeFile {
+	private int lines = 0;
+
+	public int lines(){
+		return lines;
+	}
+
+	public CodeFile(String filename){
+		try {
+			File file = new File(filename);
+			try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+        String data = "";
+        String line;
+        while((line = br.readLine()) != null)
+          data += line;
+
+        data = data.replaceAll("(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|(//.*)","");
+        return data.split("\r\n|\r|\n").length;
+
+
+//       String line;
+//				boolean isMultilineComment = false;
+//				while ((line = br.readLine()) != null) {					
+//					if(line.contains("/*")){ // does line start multiline comment
+//						if(!line.contains("*/")){ // if doesn't end
+//							isMultilineComment = true;
+//						} else {
+//							lines++;
+//						}
+//					} else if(line.contains("//")){
+//						continue;
+//					} else if(line.contains("*/")) {
+//						isMultilineComment = false;
+//					} else if(isMultilineComment){
+//						continue;
+//					} else if(line.length() == 0){
+ //           //do nothing
+//					} else {
+//						lines++;
+//					}
+
+				}
+			}
+		} catch (FileNotFoundException fnfe){
+			System.out.println("File Not Found " + filename);
+		} catch (IOException ioe){
+			System.out.println("IO Error");
+		}
+
+	}
+}
