@@ -17,13 +17,13 @@ public class FileWalker {
 		if (list == null) return;
 
 		for ( File f : list ) {
-      if ( f.isDirectory() ) {
-				walk( f.getAbsolutePath() );
-				command.directory(f.getAbsolutePath()); //directory
-			}
-			else {
-				command.file(f.getAbsolutePath()); //file
-			}
+        if ( f.isDirectory() && !f.getName().startsWith(".")) {
+            walk( f.getAbsolutePath() );
+				    command.directory(f.getAbsolutePath()); //directory
+			  }
+			  else {
+				    command.file(f.getAbsolutePath()); //file
+			  }
 		}
 	}
 }

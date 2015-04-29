@@ -9,13 +9,17 @@ import java.util.*;
 
 class CodeFile {
 	private int lines = 0;
+  private String filename;
 
 	public int lines(){
 		return lines;
 	}
-
+    public String filename(){
+        return filename;
+    }
 	public CodeFile(String filename){ /* a multiline comment at the end of a function */
-		try {
+    this.filename = filename;
+    try {
 			File file = new File(filename);
 			try (BufferedReader br = new BufferedReader(new FileReader(file))) {
         String data = "";
@@ -49,4 +53,9 @@ class CodeFile {
 		}
 
 	}
+
+  @Override
+  public String toString(){
+      return "Filename: " + filename + ", Lines: " + lines;
+  }
 }
