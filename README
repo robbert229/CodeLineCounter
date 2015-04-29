@@ -1,0 +1,14 @@
+Dear Github,
+
+This is originally just a java assignment for a command line code line counter
+application. I had some free time and it had been a while since I had worked
+with swing (I wonder why...) so I decided that I would overkill it and make a
+full on gui application to do it. When talking with some class mates I kept 
+on hearing convoluted ideas on how to deal with certain edge cases and make 
+sure that you properly counted all the lines of code. Instead of worrying 
+about all that I just used a regular expression to strip all the comments from 
+the code, more regex to remove empty lines, and then just counted my remaining 
+lines. It was that simple, and so I decided to post it to gh so that my account
+will show some more activity, since I don't use it enough. If this is the 
+grader reading I did infact do the extracredit of counting the lines of code
+in subdirectories, it was too simple not to.
